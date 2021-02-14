@@ -20,6 +20,23 @@ import javax.persistence.TypedQuery;
 public class StudyRepository extends GenericRepository<Study>{
     
     
+    public Study getStudyByPK(int cod){
+        EntityManager em = getEntityManager();
+        try{
+            TypedQuery<Study> query = em.createQuery("Select s from Study s where s.id = :cod", Study.class); 
+            query.setParameter("cod", cod);
+            return query.getSingleResult();
+
+        }catch(NoResultException e){
+            return null;
+        }finally{
+            em.close();
+        }
+    }
+    
+    
+   
+    
     public List<Study> seachStudies(String name){
         EntityManager em = getEntityManager();
         try{

@@ -60,6 +60,23 @@ public class ViewSectionStudy extends javax.swing.JDialog {
         jHandleSubmit = new javax.swing.JButton();
         jCpf = new javax.swing.JFormattedTextField();
         jPanel3 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jNameUpdate = new javax.swing.JTextField();
+        jAgeUpdate = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jAddressUpdate = new javax.swing.JTextField();
+        jPhoneUpdate = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        HandleUpdateStudy = new javax.swing.JButton();
+        jCpfUpdate = new javax.swing.JFormattedTextField();
+        jCodStudyUpdate = new javax.swing.JTextField();
+        jPanel11 = new javax.swing.JPanel();
+        HandleSearchStudy = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Studies = new javax.swing.JTable();
@@ -257,15 +274,180 @@ public class ViewSectionStudy extends javax.swing.JDialog {
 
         jPanel3.setBackground(new java.awt.Color(222, 226, 230));
 
+        jPanel9.setBackground(new java.awt.Color(222, 226, 230));
+
+        jNameUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jAgeUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel12.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(61, 90, 128));
+        jLabel12.setText("NOME");
+
+        jLabel13.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(61, 90, 128));
+        jLabel13.setText("IDADE");
+
+        jLabel14.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(61, 90, 128));
+        jLabel14.setText("CPF");
+
+        jAddressUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jAddressUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAddressUpdateActionPerformed(evt);
+            }
+        });
+
+        jPhoneUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel15.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(61, 90, 128));
+        jLabel15.setText("ENDEREÇO");
+
+        jLabel16.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(61, 90, 128));
+        jLabel16.setText("NUMERO TELEFONE");
+
+        jPanel10.setBackground(new java.awt.Color(61, 90, 128));
+
+        HandleUpdateStudy.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        HandleUpdateStudy.setForeground(new java.awt.Color(61, 90, 128));
+        HandleUpdateStudy.setText("ALTERAR");
+        HandleUpdateStudy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HandleUpdateStudyActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(HandleUpdateStudy, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(HandleUpdateStudy, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+        );
+
+        jCpfUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            jCpfUpdate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        jCodStudyUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        HandleSearchStudy.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        HandleSearchStudy.setForeground(new java.awt.Color(61, 90, 128));
+        HandleSearchStudy.setText("BUSCAR");
+        HandleSearchStudy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HandleSearchStudyActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(HandleSearchStudy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(HandleSearchStudy, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+        );
+
+        jLabel17.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(61, 90, 128));
+        jLabel17.setText("CODIGO ALUNO");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jCodStudyUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jNameUpdate)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jAddressUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12))
+                                .addGap(0, 2, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jAgeUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCpfUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                    .addComponent(jLabel14)))
+                            .addComponent(jPhoneUpdate))
+                        .addGap(12, 12, 12))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCodStudyUpdate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jAgeUpdate)
+                    .addComponent(jCpfUpdate)
+                    .addComponent(jNameUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jAddressUpdate)
+                    .addComponent(jPhoneUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 776, Short.MAX_VALUE)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Alterar Aluno", jPanel3);
@@ -297,9 +479,7 @@ public class ViewSectionStudy extends javax.swing.JDialog {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 69, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Listar Alunos", jPanel4);
@@ -359,6 +539,53 @@ public class ViewSectionStudy extends javax.swing.JDialog {
     private void jAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAddressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jAddressActionPerformed
+
+    private void jAddressUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAddressUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jAddressUpdateActionPerformed
+
+    private void HandleSearchStudyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HandleSearchStudyActionPerformed
+        try{
+            
+            Study s = this.studyRepository.getStudyByPK(Integer.parseInt(jCodStudyUpdate.getText()));
+            jNameUpdate.setText(s.getName());
+            jAgeUpdate.setText(String.valueOf(s.getAge()));
+            jCpfUpdate.setText(s.getCpf());
+            jAddressUpdate.setText(s.getAddress());
+            jPhoneUpdate.setText(s.getPhoneNumber());
+            
+        }catch(Exception ex){
+             JOptionPane.showMessageDialog(null, "Erro aluno não encontrado", "Alert", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_HandleSearchStudyActionPerformed
+    
+    private void clearInputUpdate(){
+        jNameUpdate.setText("");
+        jAgeUpdate.setText("");
+        jCpfUpdate.setText("");
+        jAddressUpdate.setText("");
+        jPhoneUpdate.setText("");
+        jCodStudyUpdate.setText("");
+    }
+    
+    
+    private void HandleUpdateStudyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HandleUpdateStudyActionPerformed
+        try{
+            Study study = this.studyRepository.getStudyByPK(Integer.parseInt(jCodStudyUpdate.getText()));
+            study.setName(jNameUpdate.getText());
+            study.setAge(Integer.parseInt(jAgeUpdate.getText()));
+            study.setCpf(jCpfUpdate.getText());
+            study.setAddress(jAddressUpdate.getText());
+            study.setPhoneNumber(jPhoneUpdate.getText());
+            this.studyRepository.update(study);
+            JOptionPane.showMessageDialog(null, "Aluno Alterado com sucesso");
+            this.clearInputUpdate();
+               
+        }catch(Exception ex){
+             JOptionPane.showMessageDialog(null, "Erro ao alterar aluno", "Alert", JOptionPane.ERROR_MESSAGE);
+        }
+            
+    }//GEN-LAST:event_HandleUpdateStudyActionPerformed
 
     
     
@@ -427,27 +654,56 @@ public class ViewSectionStudy extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton HandleSearchStudy;
+    private javax.swing.JButton HandleUpdateStudy;
     private javax.swing.JTable Studies;
     private javax.swing.JTextField jAddress;
+    private javax.swing.JTextField jAddress1;
+    private javax.swing.JTextField jAddressUpdate;
     private javax.swing.JTextField jAge;
+    private javax.swing.JTextField jAge1;
+    private javax.swing.JTextField jAgeUpdate;
     private javax.swing.JPanel jCadastreStudy;
+    private javax.swing.JTextField jCodStudyUpdate;
     private javax.swing.JFormattedTextField jCpf;
+    private javax.swing.JFormattedTextField jCpfUpdate;
     private javax.swing.JButton jHandleSubmit;
+    private javax.swing.JButton jHandleSubmit1;
     private javax.swing.JLabel jIcon;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jName;
+    private javax.swing.JTextField jName1;
+    private javax.swing.JTextField jNameUpdate;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JTextField jPhoneNumber;
+    private javax.swing.JTextField jPhoneNumber1;
+    private javax.swing.JTextField jPhoneUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
