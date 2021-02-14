@@ -456,12 +456,24 @@ public class ViewSellProduct extends javax.swing.JDialog {
     }
     
     
-    private void resetInput(){
+    private void resetInputAndTable(){
         jCodProduct.setText("");
         jDescriptionProduct.setText("");
         jPriceProduct.setText("");
         jQuantityProduct.setText("");
-                   
+        jMethodTypePayment.setText("");
+        DefaultTableModel tableItemPurchase = (DefaultTableModel) jTablePurchaseItem.getModel();
+        tableItemPurchase.setNumRows(0);
+        
+    }
+    
+    private Boolean verifyQuatityProduct(Integer quantity){
+        if(product.getQuantity() < quantity){
+            JOptionPane.showMessageDialog(null, "Produto abaixo do estoque", "Alert", JOptionPane.ERROR_MESSAGE);
+            return true;
+        }
+        else 
+            return false;
     }
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -469,22 +481,23 @@ public class ViewSellProduct extends javax.swing.JDialog {
        if(!ValidadeProduct(product)){
             //product.setPrice(Double.valueOf(jPriceProduct.getText()));
             //product.setDescription(jDescriptionProduct.getText());
+             
+            if(!verifyQuatityProduct(Integer.parseInt(jQuantityProduct.getText()))){
+                PurchaseItem purchaseItem = new PurchaseItem(Integer.parseInt(jQuantityProduct.getText()), product);
+                purchase.addItems(purchaseItem);
+                purchaseItem.setPurchase(purchase);
 
-            PurchaseItem purchaseItem = new PurchaseItem(Integer.parseInt(jQuantityProduct.getText()), product);
-            
-
-            purchase.addItems(purchaseItem);
-            purchaseItem.setPurchase(purchase);
-
-            this.completeTable(purchaseItem, purchase);
+                this.completeTable(purchaseItem, purchase);
 
 
-            BigDecimal bg = new BigDecimal(purchase.valueTotal()).setScale(2, RoundingMode.HALF_UP);
-            String valueConvert = String.valueOf(bg);
+                BigDecimal bg = new BigDecimal(purchase.valueTotal()).setScale(2, RoundingMode.HALF_UP);
+                String valueConvert = String.valueOf(bg);
 
-             System.out.println("Valor total R$ " + purchase.valueTotal());
-             jTotal.setText(valueConvert);
-             this.product = null;
+                System.out.println("Valor total R$ " + purchase.valueTotal());
+                jTotal.setText(valueConvert);
+                this.product = null;
+            }
+
        }
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -498,12 +511,8 @@ public class ViewSellProduct extends javax.swing.JDialog {
         if(ValidadeProduct(product)){
              JOptionPane.showMessageDialog(null, "Produto não encontrado", "Alert", JOptionPane.ERROR);
         }else{
-            if(product.getQuantity() < 1){
-                 JOptionPane.showMessageDialog(null, "Produto abaixo do estoque", "Alert", JOptionPane.ERROR);
-            }else{
                  jDescriptionProduct.setText(product.getDescription());
                  jPriceProduct.setText(String.valueOf(product.getPrice()));
-            }
         }
         
     }//GEN-LAST:event_jHandleSerchProductActionPerformed
@@ -531,17 +540,19 @@ public class ViewSellProduct extends javax.swing.JDialog {
             purchase.setAmount(purchase.valueTotal());
             purchase.setSaleDate(new Date());
             
-            purchase.setTypePayment(this.validadeTypeMPayment(jMethodTypePayment.getText()));
-            purchase.setCashRegister(cashRegister);
-            this.purchaseRepository.insert(purchase);
-            JOptionPane.showMessageDialog(null, "Compra realizada com sucesso");
-            this.resetInput();
-            setVisible(false);
-           
+            if(jMethodTypePayment.getText().trim().equals("")){
+                JOptionPane.showMessageDialog(null, "Preencha os campos obrigatorios", "Alert", JOptionPane.WARNING_MESSAGE);
+            }else{
+                purchase.setTypePayment(this.validadeTypeMPayment(jMethodTypePayment.getText()));
+                purchase.setCashRegister(cashRegister);
+
+                this.purchaseRepository.insert(purchase);
+                JOptionPane.showMessageDialog(null, "Compra realizada com sucesso");
+                this.resetInputAndTable();
+            }
             
         }catch(Exception ex){
             System.out.println(ex.getStackTrace());
-            
         }
     }//GEN-LAST:event_jHandleSubmitPurchaseActionPerformed
 

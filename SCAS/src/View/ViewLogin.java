@@ -60,7 +60,7 @@ public class ViewLogin extends javax.swing.JFrame {
 
         jUserName.setBackground(new java.awt.Color(243, 243, 243));
         jUserName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jUserName.setForeground(new java.awt.Color(204, 204, 204));
+        jUserName.setForeground(new java.awt.Color(0, 0, 0));
         jUserName.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(61, 90, 128)));
 
         jPassword.setBackground(new java.awt.Color(243, 243, 243));
@@ -206,8 +206,26 @@ public class ViewLogin extends javax.swing.JFrame {
     }
     
     
-    private void jHandleLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jHandleLoginMouseClicked
+    private void login(String userLogin, String password){
         Employee employee = new Employee();
+        try{
+           employee = this.loginRepository.EmployeeAuthenticate(userLogin, password);
+           if(validadeEmployee(employee)){
+                ViewDashboard viewDashboard = new ViewDashboard(employee);
+                viewDashboard.setVisible(true);
+                setVisible(false);
+           }else{
+               JOptionPane.showMessageDialog(null, "Usuario e senha inválidos", "Error", JOptionPane.ERROR_MESSAGE);
+           }
+           
+        }catch(NoResultException ex){
+            System.out.println(ex.getStackTrace());
+        } 
+    }
+    
+    
+    private void jHandleLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jHandleLoginMouseClicked
+        
 
         String userLogin = jUserName.getText();
         String password = jPassword.getText();
@@ -215,18 +233,8 @@ public class ViewLogin extends javax.swing.JFrame {
         if(validateUserLoginAndPassword(userLogin, password)){
             JOptionPane.showMessageDialog(null, "Preencha os campos obrigatorios", "Alert", JOptionPane.WARNING_MESSAGE);
         }else{
-                try{
-
-                employee = this.loginRepository.EmployeeAuthenticate(userLogin, password);
-                ViewDashboard viewDashboard = new ViewDashboard(employee);
-                viewDashboard.setVisible(true);
-                setVisible(false);
-
-            }catch(NoResultException ex){
-                System.out.println(ex.getMessage());
-            }
+            this.login(userLogin, password);
         }
-        
     }//GEN-LAST:event_jHandleLoginMouseClicked
 
     /**

@@ -20,6 +20,8 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +32,7 @@ import java.util.List;
 public class BuildReport {
     
     public void createReportEmployee(List<Employee> employees){
-         String path = "/home/georgeborsato/Área de Trabalho/SCAS/SCAS/src/reports/rel_func.pdf";
+         String path = "rel_func.pdf";
       try{
           Document document = new Document();
           PdfWriter.getInstance(document, new FileOutputStream(path));
@@ -81,11 +83,13 @@ public class BuildReport {
           
           document.add(table);
           
+          Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+          
           Paragraph date = new Paragraph(10);
           date.add(Chunk.NEWLINE);
            date.add(Chunk.NEWLINE);
           Date da = new Date();
-          date.add(da.toGMTString());
+          date.add(formatter.format(da));
           date.add(Chunk.NEWLINE);
           date.add(Chunk.NEWLINE);
           date.setAlignment(Element.ALIGN_RIGHT);
@@ -104,7 +108,7 @@ public class BuildReport {
     }
     
     public void createReportPurchase(List<Purchase> purchases){
-        String path = "/home/georgeborsato/Área de Trabalho/SCAS/SCAS/src/reports/rel_venda.pdf";
+        String path = "rel_venda.pdf";
         
         try{
           Document document = new Document();
@@ -142,9 +146,12 @@ public class BuildReport {
           table.addCell(c3);
           table.setHorizontalAlignment(Element.ALIGN_CENTER);
           
+           Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+   
+          
           for(Purchase pu : purchases){
               table.addCell("" + pu.getAmount());
-              table.addCell("" + pu.getSaleDate().toLocaleString());
+              table.addCell("" + formatter.format(pu.getSaleDate()));
               table.addCell("" + pu.getTypePayment());
           }
           

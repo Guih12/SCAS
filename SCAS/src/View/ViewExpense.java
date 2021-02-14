@@ -8,6 +8,7 @@ package View;
 import Model.CashRegister;
 import Model.Expense;
 import Repositories.ExpenseRepository;
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -160,7 +161,7 @@ public class ViewExpense extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Id", "Descrição", "Data", "Valor"
+                "Codigo", "Descrição", "Valor", "Data"
             }
         ));
         jScrollPane1.setViewportView(jTableExpense);
@@ -277,9 +278,10 @@ public class ViewExpense extends javax.swing.JDialog {
     private void listExpense(){
         DefaultTableModel tableItemPurchase = (DefaultTableModel) jTableExpense.getModel();
         List<Expense> expenses = this.expenseRepository.getAll();
+        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
         
         for(Expense e : expenses){
-             tableItemPurchase.addRow(new Object[] {e.getId(), e.getDescription(), e.getValue(), e.getExpenseDate()});
+             tableItemPurchase.addRow(new Object[] {e.getId(), e.getDescription(), e.getValue(), formatter.format(e.getExpenseDate())});
         }
     }
     
