@@ -41,6 +41,7 @@ public class ViewEmployee extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel6 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -58,7 +59,6 @@ public class ViewEmployee extends javax.swing.JDialog {
         jNumberPhone = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTypeEmployee = new javax.swing.JRadioButton();
         jPanel8 = new javax.swing.JPanel();
         jHandleSubmitEmployee = new javax.swing.JButton();
         jUserLogin = new javax.swing.JTextField();
@@ -66,10 +66,42 @@ public class ViewEmployee extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jPassword = new javax.swing.JPasswordField();
         jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableSeachEmployee = new javax.swing.JTable();
+        jNameSearchEmployee = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
+        jHandleSearchEmployee = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jTypeEmployeeUpdate = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jCodEmployeeUpdate = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jHandleUpdateEmployee = new javax.swing.JButton();
         jTableEmployee = new javax.swing.JScrollPane();
         TableEmployee = new javax.swing.JTable();
-        jPanel6 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableRemoveEmployee = new javax.swing.JTable();
+        jCodRemove = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jHandleSearchEmployeeToRemove = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        HandleRemoveEmployee = new javax.swing.JButton();
+
+        jPanel6.setBackground(new java.awt.Color(222, 226, 230));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 762, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 384, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -158,16 +190,6 @@ public class ViewEmployee extends javax.swing.JDialog {
         jLabel8.setForeground(new java.awt.Color(1, 58, 99));
         jLabel8.setText("NUMERO TELEFONE");
 
-        jTypeEmployee.setBackground(new java.awt.Color(1, 58, 99));
-        jTypeEmployee.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jTypeEmployee.setForeground(new java.awt.Color(243, 243, 243));
-        jTypeEmployee.setText("ADMINISTRADOR");
-        jTypeEmployee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTypeEmployeeActionPerformed(evt);
-            }
-        });
-
         jPanel8.setBackground(new java.awt.Color(61, 90, 128));
 
         jHandleSubmitEmployee.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -221,8 +243,7 @@ public class ViewEmployee extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTypeEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,7 +299,7 @@ public class ViewEmployee extends javax.swing.JDialog {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jAddress)
                     .addComponent(jNumberPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel9))
@@ -287,9 +308,7 @@ public class ViewEmployee extends javax.swing.JDialog {
                     .addComponent(jUserLogin)
                     .addComponent(jPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTypeEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -310,21 +329,126 @@ public class ViewEmployee extends javax.swing.JDialog {
 
         jPanel4.setBackground(new java.awt.Color(222, 226, 230));
 
+        jTableSeachEmployee.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "CODIGO", "NOME", "IDADE", "CPF", "TIPO", "ENDEREÇO"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableSeachEmployee);
+
+        jHandleSearchEmployee.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jHandleSearchEmployee.setForeground(new java.awt.Color(1, 58, 99));
+        jHandleSearchEmployee.setText("BUSCAR");
+        jHandleSearchEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jHandleSearchEmployeeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jHandleSearchEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jHandleSearchEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        jLabel10.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(1, 58, 99));
+        jLabel10.setText("NOME");
+
+        jLabel11.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(1, 58, 99));
+        jLabel11.setText("TIPO DE USUARIO");
+
+        jLabel12.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(1, 58, 99));
+        jLabel12.setText("CODIGO");
+
+        jHandleUpdateEmployee.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jHandleUpdateEmployee.setForeground(new java.awt.Color(1, 58, 99));
+        jHandleUpdateEmployee.setText("ALTERAR");
+        jHandleUpdateEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jHandleUpdateEmployeeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jHandleUpdateEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jHandleUpdateEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 762, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jNameSearchEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel12))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jTypeEmployeeUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jCodEmployeeUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 55, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 384, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jNameSearchEmployee)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jCodEmployeeUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                        .addComponent(jTypeEmployeeUpdate)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("EDITAR FUNCIONARIO", jPanel4);
-
-        jPanel5.setBackground(new java.awt.Color(222, 226, 230));
-        jPanel5.setForeground(new java.awt.Color(222, 226, 230));
 
         TableEmployee.setBackground(new java.awt.Color(222, 226, 230));
         TableEmployee.setModel(new javax.swing.table.DefaultTableModel(
@@ -337,33 +461,99 @@ public class ViewEmployee extends javax.swing.JDialog {
         ));
         jTableEmployee.setViewportView(TableEmployee);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTableEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
+        jTabbedPane1.addTab("LISTAR FUNCIONARIOS", jTableEmployee);
+
+        jPanel9.setBackground(new java.awt.Color(222, 226, 230));
+
+        jTableRemoveEmployee.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "CODIGO", "NOME", "IDADE", "CPF", "TIPO", "ENDEREÇO"
+            }
+        ));
+        jScrollPane2.setViewportView(jTableRemoveEmployee);
+
+        jLabel13.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(1, 58, 99));
+        jLabel13.setText("CODIGO");
+
+        jHandleSearchEmployeeToRemove.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jHandleSearchEmployeeToRemove.setForeground(new java.awt.Color(1, 58, 99));
+        jHandleSearchEmployeeToRemove.setText("BUSCAR");
+        jHandleSearchEmployeeToRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jHandleSearchEmployeeToRemoveActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jHandleSearchEmployeeToRemove, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTableEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jHandleSearchEmployeeToRemove, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("LISTAR FUNCIONÁRIOS", jPanel5);
+        HandleRemoveEmployee.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        HandleRemoveEmployee.setForeground(new java.awt.Color(1, 58, 99));
+        HandleRemoveEmployee.setText("EXCLUIR");
+        HandleRemoveEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HandleRemoveEmployeeActionPerformed(evt);
+            }
+        });
 
-        jPanel6.setBackground(new java.awt.Color(222, 226, 230));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 762, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(HandleRemoveEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 384, Short.MAX_VALUE)
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(HandleRemoveEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("DELETAR FUNCIONÁRIO", jPanel6);
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jCodRemove)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCodRemove)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("DELETAR FUNCIONARIO", jPanel9);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -377,7 +567,7 @@ public class ViewEmployee extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -430,10 +620,10 @@ public class ViewEmployee extends javax.swing.JDialog {
     private TypeEmployee verifyTypeEmployee(String typeEmployee){
         if(typeEmployee.toUpperCase().equals("ADMINISTRADOR")){
             return TypeEmployee.ADMINISTRADOR;
-        }else if(typeEmployee.toUpperCase().equals("")){
+        }else if(typeEmployee.toUpperCase().equals("COMUM")){
             return TypeEmployee.COMUM;
         }
-        return TypeEmployee.ADMINISTRADOR;
+        return TypeEmployee.COMUM;
     }
     
     
@@ -457,7 +647,7 @@ public class ViewEmployee extends javax.swing.JDialog {
          employee.setPhoneNumber(phoneNumber);
          employee.setUserLogin(userLogin);
          employee.setPassword(password);
-         employee.setTypeEmployee(this.verifyTypeEmployee(jTypeEmployee.getText()));
+         employee.setTypeEmployee(TypeEmployee.COMUM);
          
         
         
@@ -491,14 +681,70 @@ public class ViewEmployee extends javax.swing.JDialog {
     
     
     
-    private void jTypeEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTypeEmployeeActionPerformed
-       // TODO add your handling code here:
-    }//GEN-LAST:event_jTypeEmployeeActionPerformed
-
     private void jUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUserLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jUserLoginActionPerformed
 
+    
+    
+    private void completeTableSearchEmployee(Employee e){
+           DefaultTableModel tableSearchEmployee = (DefaultTableModel) jTableSeachEmployee.getModel();
+            tableSearchEmployee.addRow(new Object[] {e.getId(), e.getName(), e.getAge(), e.getCpf(), e.getTypeEmployee(), e.getAddress()});
+    }
+    
+    private void jHandleSearchEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHandleSearchEmployeeActionPerformed
+        String name = jNameSearchEmployee.getText();
+        try{
+            
+            List<Employee> employees = this.employeeRepository.searchEmployee(name);
+            for(Employee e : employees){
+                this.completeTableSearchEmployee(e);
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Funcionário não encontrado", "Alert", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jHandleSearchEmployeeActionPerformed
+
+    private void jHandleUpdateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHandleUpdateEmployeeActionPerformed
+        String typeEmployee = jTypeEmployeeUpdate.getText();
+        String cod = jCodEmployeeUpdate.getText();
+        
+        Employee employeeUpdate = this.employeeRepository.getEmployeePK(Integer.parseInt(cod));
+        employeeUpdate.setTypeEmployee(this.verifyTypeEmployee(typeEmployee));
+        
+        
+        try{
+            this.employeeRepository.update(employeeUpdate);
+            JOptionPane.showMessageDialog(null, "Funcionario Alterado com sucesso");
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Erro ao alterar funcionário", "Alert", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jHandleUpdateEmployeeActionPerformed
+
+    private void jHandleSearchEmployeeToRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHandleSearchEmployeeToRemoveActionPerformed
+        try{
+            String cod = jCodRemove.getText();
+            Employee employee = this.employeeRepository.getEmployeePK(Integer.parseInt(cod));
+             DefaultTableModel tableRemoveEmployee = (DefaultTableModel) jTableRemoveEmployee.getModel();
+            tableRemoveEmployee.addRow(new Object[] {employee.getId(), employee.getName(), employee.getAge(), 
+                employee.getCpf(), employee.getTypeEmployee(), employee.getAddress()});
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Funcionário não encontrado", "Alert", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jHandleSearchEmployeeToRemoveActionPerformed
+
+    private void HandleRemoveEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HandleRemoveEmployeeActionPerformed
+        try{
+            Employee employeeRemove = this.employeeRepository.getEmployeePK(Integer.parseInt(jCodRemove.getText()));
+            this.employeeRepository.delete(employeeRemove);
+            JOptionPane.showMessageDialog(null, "Excluido com sucesso");
+            jCodRemove.setText("");
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Erro ao excluir funcionário", "Alert", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_HandleRemoveEmployeeActionPerformed
+ 
     /**
      * @param args the command line arguments
      */
@@ -542,13 +788,23 @@ public class ViewEmployee extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton HandleRemoveEmployee;
     private javax.swing.JTable TableEmployee;
     private javax.swing.JTextField jAddress;
     private javax.swing.JTextField jAge;
     private javax.swing.JFormattedTextField jCPF;
+    private javax.swing.JTextField jCodEmployeeUpdate;
+    private javax.swing.JTextField jCodRemove;
     private javax.swing.JPanel jFormEmployee;
+    private javax.swing.JButton jHandleSearchEmployee;
+    private javax.swing.JButton jHandleSearchEmployeeToRemove;
     private javax.swing.JButton jHandleSubmitEmployee;
+    private javax.swing.JButton jHandleUpdateEmployee;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -558,18 +814,27 @@ public class ViewEmployee extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jName;
+    private javax.swing.JTextField jNameSearchEmployee;
     private javax.swing.JTextField jNumberPhone;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JPasswordField jPassword;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JScrollPane jTableEmployee;
-    private javax.swing.JRadioButton jTypeEmployee;
+    private javax.swing.JTable jTableRemoveEmployee;
+    private javax.swing.JTable jTableSeachEmployee;
+    private javax.swing.JTextField jTypeEmployeeUpdate;
     private javax.swing.JTextField jUserLogin;
     // End of variables declaration//GEN-END:variables
 }

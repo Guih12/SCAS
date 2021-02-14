@@ -341,7 +341,7 @@ public class ViewDashboard extends javax.swing.JFrame {
             jButtonHandleCloseSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jButtonHandleCloseSystemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jButtonHandleCloseSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jButtonHandleCloseSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                     .addComponent(jIconClose))
                 .addContainerGap())

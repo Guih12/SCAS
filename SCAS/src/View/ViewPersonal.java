@@ -22,7 +22,6 @@ public class ViewPersonal extends javax.swing.JDialog {
      */
     
     private PersonalRepository personalRepository;
-    
     public ViewPersonal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -99,6 +98,7 @@ public class ViewPersonal extends javax.swing.JDialog {
         jLabel7.setForeground(new java.awt.Color(61, 90, 128));
         jLabel7.setText("TELEFONE");
 
+        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(61, 90, 128));
         jLabel8.setText("TARIFA");
 
@@ -234,7 +234,7 @@ public class ViewPersonal extends javax.swing.JDialog {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -253,6 +253,27 @@ public class ViewPersonal extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jHandleSubmitPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHandleSubmitPersonalActionPerformed
+        String name = jName.getText();
+        String age = jAge.getText();
+        String cpf = jCpf.getText();
+        String cref = jCref.getText();
+        String address = jAddress.getText();
+        String phoneNumber = jPhoneNumber.getText();
+        String tariff = jTariff.getText();
+
+        if(validadeDate(name, age, cpf, cref, address, phoneNumber, tariff)){
+            JOptionPane.showMessageDialog(null, "Preencha os campos obrigatorios", "Alert", JOptionPane.WARNING_MESSAGE);
+        }else{
+
+            Double tariffConvert = Double.valueOf(tariff);
+
+            Personal personal = new Personal(cref, tariffConvert, name, Integer.parseInt(age), cpf, phoneNumber, address);
+            this.insertPersonal(personal);
+        }
+
+    }//GEN-LAST:event_jHandleSubmitPersonalActionPerformed
 
     
     private Boolean validadeDate(String name, String age, String cpf, String cref, String address, String phoneNumber, String tariff){
@@ -274,34 +295,18 @@ public class ViewPersonal extends javax.swing.JDialog {
              JOptionPane.showMessageDialog(null, "Erro ao cadastrar personal", "Alert", JOptionPane.ERROR);
         }
     }
+        
     
-    private void jHandleSubmitPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHandleSubmitPersonalActionPerformed
-        String name = jName.getText();
-        String age = jAge.getText();
-        String cpf = jAge.getText();
-        String cref = jAge.getText();
-        String address = jAddress.getText();
-        String phoneNumber = jPhoneNumber.getText();
-        String tariff = jTariff.getText();
-        
-        if(validadeDate(name, age, cpf, cref, address, phoneNumber, tariff)){
-            JOptionPane.showMessageDialog(null, "Preencha os campos obrigatorios", "Alert", JOptionPane.WARNING_MESSAGE);
-        }else{
+    
+    
             
-            Double tariffConvert = Double.valueOf(tariff);
-            
-            Personal personal = new Personal(cref, tariffConvert, name, Integer.parseInt(age), cpf, phoneNumber, address);
-            this.insertPersonal(personal);
-        }
-        
-    }//GEN-LAST:event_jHandleSubmitPersonalActionPerformed
-        
      private void listPersonals(){
           DefaultTableModel tablePersonal= (DefaultTableModel) jTablePersonal.getModel();
           List<Personal> personals = this.personalRepository.getAll();
           
           for(Personal p : personals ){
-              tablePersonal.addRow(new Object[] {p.getId(), p.getName(), p.getPhoneNumber(), p.getCpf(), p.getCref()});
+              tablePersonal.addRow(new Object[] {p.getId(), p.getName(),p.getAge(), 
+                  p.getPhoneNumber(), p.getCpf(), p.getCref()});
           }
     }
     
