@@ -7,7 +7,9 @@ package View;
 
 import Model.Personal;
 import Repositories.PersonalRepository;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,6 +27,7 @@ public class ViewPersonal extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.personalRepository = new PersonalRepository();
+        this.listPersonals();
     }
 
     /**
@@ -55,6 +58,9 @@ public class ViewPersonal extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jHandleSubmitPersonal = new javax.swing.JButton();
         jTariff = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTablePersonal = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -64,7 +70,7 @@ public class ViewPersonal extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(248, 249, 250));
 
         try {
-            jCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.##-##")));
+            jCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -184,6 +190,31 @@ public class ViewPersonal extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("CADASTRAR PERSONAL", jPanel2);
 
+        jTablePersonal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "CODIGO", "NOME", "IDADE", "TELEFONE", "CPF", "CREF"
+            }
+        ));
+        jScrollPane1.setViewportView(jTablePersonal);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("LISTAR PERSONAIS", jPanel4);
+
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(243, 243, 243));
         jLabel1.setText("PERSONAIS");
@@ -203,9 +234,9 @@ public class ViewPersonal extends javax.swing.JDialog {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -264,7 +295,16 @@ public class ViewPersonal extends javax.swing.JDialog {
         }
         
     }//GEN-LAST:event_jHandleSubmitPersonalActionPerformed
-
+        
+     private void listPersonals(){
+          DefaultTableModel tablePersonal= (DefaultTableModel) jTablePersonal.getModel();
+          List<Personal> personals = this.personalRepository.getAll();
+          
+          for(Personal p : personals ){
+              tablePersonal.addRow(new Object[] {p.getId(), p.getName(), p.getPhoneNumber(), p.getCpf(), p.getCref()});
+          }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -325,8 +365,11 @@ public class ViewPersonal extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jPhoneNumber;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTablePersonal;
     private javax.swing.JTextField jTariff;
     // End of variables declaration//GEN-END:variables
 }
