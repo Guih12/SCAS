@@ -310,16 +310,21 @@ public class ViewCadastreRegister extends javax.swing.JDialog {
     
     private void jSearchAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSearchAlunoActionPerformed
         String name = jName.getText();
-        try{
-             List<Study> studies = this.studyRepository.seachStudies(name);
-             for(Study s : studies){
-                 this.showStudiesTable(s);
-             }
-             
-        }catch(Exception ex){
-            System.out.println(ex.getMessage());
+        
+        if(!name.trim().equals("")){
+            
+             try{
+                List<Study> studies = this.studyRepository.seachStudies(name);
+                for(Study s : studies){
+                    this.showStudiesTable(s);
+                }
+            }catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+        }else{
+             JOptionPane.showMessageDialog(null, "Preencha o campo de nome para realizar a busca", "Alert", JOptionPane.WARNING_MESSAGE);
         }
-       
+        
     }//GEN-LAST:event_jSearchAlunoActionPerformed
     
     private Date convertDate(String date) throws ParseException{
@@ -392,7 +397,19 @@ public class ViewCadastreRegister extends javax.swing.JDialog {
         
     }
     
-   
+    
+    private Boolean validateDate(String data, String value, String desc, String typePayment, String cod){
+        if(data.trim().equals("")
+                || value.trim().equals("")
+                || typePayment.trim().equals("") 
+                || desc.trim().equals("")
+                || cod.trim().equals("")){
+            return true;
+        }
+        else
+            return false;
+    }
+    
     private void jHandleRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHandleRegistrationActionPerformed
         String dataRegistration = jDataRegistration.getText();
         String valueRegistration = jValueRegistration.getText();
@@ -400,7 +417,12 @@ public class ViewCadastreRegister extends javax.swing.JDialog {
         String typePayment = jTypePayment.getText();
         String codStudy = jCodStudy.getText();
         
-        this.insertRegistration(dataRegistration, valueRegistration, desc, typePayment, codStudy);
+        if(this.validateDate(desc, desc, desc, typePayment, desc)){
+            JOptionPane.showMessageDialog(null, "Preencha os campos obrigatorios", "Alert", JOptionPane.WARNING_MESSAGE);
+        }else{
+            this.insertRegistration(dataRegistration, valueRegistration, desc, typePayment, codStudy);
+        }
+        
     }//GEN-LAST:event_jHandleRegistrationActionPerformed
 
     /**

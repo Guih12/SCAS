@@ -5,6 +5,7 @@
  */
 package View;
 
+import Enum.TypeEmployee;
 import Model.CashRegister;
 import Model.Employee;
 import Repositories.CashRegisterRepository;
@@ -656,7 +657,7 @@ public class ViewDashboard extends javax.swing.JFrame {
 
     private void jHandleRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHandleRegistrationActionPerformed
         
-        if(verifyCashRegister(this.cashRegister)){
+        if(verifyCashRegister(this.cashRegister) || verifyCashRegisterClose(this.cashRegister)){
             JOptionPane.showMessageDialog(null, "Por favor, abrir o caixa Primeiro", "Alert", JOptionPane.WARNING_MESSAGE);
         }else{
             ViewCadastreRegister cadastreRegister = new ViewCadastreRegister(null, true, cashRegister, employee);
@@ -667,7 +668,7 @@ public class ViewDashboard extends javax.swing.JFrame {
     private void jHandleSellProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHandleSellProductActionPerformed
        
         
-        if(verifyCashRegister(this.cashRegister)){
+        if(verifyCashRegister(this.cashRegister) || verifyCashRegisterClose(this.cashRegister)){
             JOptionPane.showMessageDialog(null, "Por favor, abrir o caixa Primeiro", "Alert", JOptionPane.WARNING_MESSAGE);
         }else{
             System.out.println("Vender produto");
@@ -686,8 +687,12 @@ public class ViewDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jHandleOpenCaixaActionPerformed
 
     private void jButtonHandleEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHandleEmployeeMouseClicked
-        ViewEmployee viewEmployee = new ViewEmployee(null, true);
-        viewEmployee.setVisible(true);
+        if(employee.getTypeEmployee().equals(TypeEmployee.ADMINISTRADOR)){
+             ViewEmployee viewEmployee = new ViewEmployee(null, true);
+            viewEmployee.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Restrito! Apenas Administradores", "Alert", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonHandleEmployeeMouseClicked
 
     private void jButtonHandleSutdyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHandleSutdyMouseClicked
@@ -703,7 +708,7 @@ public class ViewDashboard extends javax.swing.JFrame {
     private void jButtonHandleReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHandleReportMouseClicked
         
         
-        ViewReport viewReport = new ViewReport(null, true);
+        ViewReport viewReport = new ViewReport(null, true, employee);
         viewReport.setVisible(true);
     }//GEN-LAST:event_jButtonHandleReportMouseClicked
 

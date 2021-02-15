@@ -158,6 +158,7 @@ public class ViewSellProduct extends javax.swing.JDialog {
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -176,10 +177,14 @@ public class ViewSellProduct extends javax.swing.JDialog {
         );
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(61, 90, 128));
         jLabel5.setText("TOTAL: R$");
 
         jTotal.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jTotal.setForeground(new java.awt.Color(61, 90, 128));
 
+        jHandleSubmitPurchase.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jHandleSubmitPurchase.setForeground(new java.awt.Color(61, 90, 128));
         jHandleSubmitPurchase.setText("FINALIZAR COMPRA");
         jHandleSubmitPurchase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jHandleSubmitPurchase.addActionListener(new java.awt.event.ActionListener() {
@@ -192,7 +197,7 @@ public class ViewSellProduct extends javax.swing.JDialog {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jHandleSubmitPurchase, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+            .addComponent(jHandleSubmitPurchase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

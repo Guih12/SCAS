@@ -125,11 +125,10 @@ public class ViewSectionStudy extends javax.swing.JDialog {
 
         jPanel5.setBackground(new java.awt.Color(222, 226, 230));
 
-        jName.setBackground(new java.awt.Color(222, 226, 230));
-        jName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(61, 90, 128)));
+        jName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jAge.setBackground(new java.awt.Color(222, 226, 230));
-        jAge.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(61, 90, 128)));
+        jAge.setForeground(new java.awt.Color(69, 73, 74));
+        jAge.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setForeground(new java.awt.Color(61, 90, 128));
         jLabel2.setText("NOME");
@@ -140,16 +139,14 @@ public class ViewSectionStudy extends javax.swing.JDialog {
         jLabel4.setForeground(new java.awt.Color(61, 90, 128));
         jLabel4.setText("CPF");
 
-        jAddress.setBackground(new java.awt.Color(222, 226, 230));
-        jAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(61, 90, 128)));
+        jAddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jAddressActionPerformed(evt);
             }
         });
 
-        jPhoneNumber.setBackground(new java.awt.Color(222, 226, 230));
-        jPhoneNumber.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(61, 90, 128)));
+        jPhoneNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel5.setForeground(new java.awt.Color(61, 90, 128));
         jLabel5.setText("ENDEREÇO");
@@ -183,8 +180,7 @@ public class ViewSectionStudy extends javax.swing.JDialog {
             .addComponent(jHandleSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
-        jCpf.setBackground(new java.awt.Color(222, 226, 230));
-        jCpf.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(61, 90, 128)));
+        jCpf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
             jCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
@@ -309,11 +305,12 @@ public class ViewSectionStudy extends javax.swing.JDialog {
         jLabel16.setForeground(new java.awt.Color(61, 90, 128));
         jLabel16.setText("NUMERO TELEFONE");
 
-        jPanel10.setBackground(new java.awt.Color(61, 90, 128));
+        jPanel10.setBackground(new java.awt.Color(69, 73, 74));
 
         HandleUpdateStudy.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         HandleUpdateStudy.setForeground(new java.awt.Color(61, 90, 128));
         HandleUpdateStudy.setText("ALTERAR");
+        HandleUpdateStudy.setBorder(null);
         HandleUpdateStudy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HandleUpdateStudyActionPerformed(evt);

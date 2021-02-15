@@ -7,12 +7,17 @@ package View;
 
 
 import BuildReport.BuildReport;
+import Enum.TypeEmployee;
 import Model.Employee;
+import Model.Expense;
 import Model.Purchase;
 import Repositories.EmployeeRepository;
+import Repositories.ExpenseRepository;
 import Repositories.PurchaseRepository;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,14 +33,22 @@ public class ViewReport extends javax.swing.JDialog {
    
     private EmployeeRepository employeeRepository;
     private PurchaseRepository purchaseRepository;
+    private ExpenseRepository expenseRepository;
     private BuildReport buildReport;
+    private Employee employee;
     
-    public ViewReport(java.awt.Frame parent, boolean modal) {
+    public ViewReport(java.awt.Frame parent, boolean modal, Employee employee) {
         super(parent, modal);
         initComponents();
         this.employeeRepository = new EmployeeRepository();
         this.purchaseRepository = new PurchaseRepository();
+        this.expenseRepository = new ExpenseRepository();
         this.buildReport = new BuildReport();
+        this.employee = employee;
+    }
+
+    private ViewReport(JFrame jFrame, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -56,7 +69,7 @@ public class ViewReport extends javax.swing.JDialog {
         jPanel5 = new javax.swing.JPanel();
         jHandleReportPurchase = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        jHandleReportExpenses = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -73,16 +86,16 @@ public class ViewReport extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(360, 360, 360)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addGap(37, 37, 37))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(222, 226, 230));
@@ -143,24 +156,29 @@ public class ViewReport extends javax.swing.JDialog {
 
         jPanel6.setBackground(new java.awt.Color(61, 90, 128));
 
-        jButton3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(243, 243, 243));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/avatar_study.png"))); // NOI18N
-        jButton3.setText("MATRICULAS");
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jHandleReportExpenses.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jHandleReportExpenses.setForeground(new java.awt.Color(243, 243, 243));
+        jHandleReportExpenses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/despesas_64px.png"))); // NOI18N
+        jHandleReportExpenses.setText("DESPESAS");
+        jHandleReportExpenses.setBorder(null);
+        jHandleReportExpenses.setBorderPainted(false);
+        jHandleReportExpenses.setContentAreaFilled(false);
+        jHandleReportExpenses.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jHandleReportExpenses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jHandleReportExpensesMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+            .addComponent(jHandleReportExpenses, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jHandleReportExpenses, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -224,9 +242,21 @@ public class ViewReport extends javax.swing.JDialog {
     }//GEN-LAST:event_jHandleReportEmployeeActionPerformed
 
     private void jHandleReportPurchaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHandleReportPurchaseActionPerformed
-        ViewSearchPurchasesReport viewSearchPurchasesReport = new ViewSearchPurchasesReport(null, true);
-        viewSearchPurchasesReport.setVisible(true);
+        
+        if(employee.getTypeEmployee().equals(TypeEmployee.ADMINISTRADOR)){
+             ViewSearchPurchasesReport viewSearchPurchasesReport = new ViewSearchPurchasesReport(null, true);
+             viewSearchPurchasesReport.setVisible(true);
+        }else{
+             JOptionPane.showMessageDialog(null, "Restrito! Apenas Administradores", "Alert", JOptionPane.WARNING_MESSAGE);
+        }
+       
     }//GEN-LAST:event_jHandleReportPurchaseActionPerformed
+
+    private void jHandleReportExpensesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jHandleReportExpensesMouseClicked
+        List<Expense> expenses = this.expenseRepository.getAll();
+        System.out.println(expenses);
+        this.buildReport.createReportExpenses(expenses);
+    }//GEN-LAST:event_jHandleReportExpensesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -271,8 +301,8 @@ public class ViewReport extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jHandleReportEmployee;
+    private javax.swing.JButton jHandleReportExpenses;
     private javax.swing.JButton jHandleReportPurchase;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

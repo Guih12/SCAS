@@ -6,6 +6,7 @@
 package BuildReport;
 
 import Model.Employee;
+import Model.Expense;
 import Model.Purchase;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
@@ -32,7 +33,7 @@ import java.util.List;
 public class BuildReport {
     
     public void createReportEmployee(List<Employee> employees){
-         String path = "rel_func.pdf";
+         String path = "rel_funcionarios.pdf";
       try{
           Document document = new Document();
           PdfWriter.getInstance(document, new FileOutputStream(path));
@@ -153,6 +154,68 @@ public class BuildReport {
               table.addCell("" + pu.getAmount());
               table.addCell("" + formatter.format(pu.getSaleDate()));
               table.addCell("" + pu.getTypePayment());
+          }
+          
+         document.add(table);
+         
+         document.close();
+          
+         Desktop.getDesktop().open(new File(path));
+            
+        }catch(Exception ex){
+            System.out.println(ex.getStackTrace());
+        }
+    }
+    
+    public void createReportExpenses(List<Expense> expenses){
+       String path = "rel_despesas.pdf";
+        
+        try{
+          Document document = new Document();
+          PdfWriter.getInstance(document, new FileOutputStream(path));
+          document.open();
+          
+          Paragraph p = new Paragraph(20);
+          Font black = new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD, BaseColor.BLACK);
+          p.add(Chunk.NEWLINE);
+    
+          p.add("RELATÓRIO DE DESPESAS");
+          p.add(Chunk.NEWLINE);
+          p.add(Chunk.NEWLINE);
+          p.setFont(new Font(Font.FontFamily.HELVETICA, 36, Font.NORMAL, BaseColor.BLACK));
+          p.setAlignment(Element.ALIGN_CENTER);
+          
+          
+          document.add(p);
+          
+           
+          PdfPTable table = new PdfPTable(4);
+          table.setWidthPercentage(100);
+          
+          PdfPCell c1 =  new PdfPCell(new Phrase("Descrição", black));
+          PdfPCell c2 =  new PdfPCell(new Phrase("Data", black));
+          PdfPCell c3 =  new PdfPCell(new Phrase("Valor", black));
+          PdfPCell c4 =  new PdfPCell(new Phrase("Data caixa", black));
+         
+          c1.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
+          c2.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
+          c3.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
+          c4.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
+          
+          table.addCell(c1);
+          table.addCell(c2);
+          table.addCell(c3);
+          table.addCell(c4);
+          table.setHorizontalAlignment(Element.ALIGN_CENTER);
+          
+           Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+   
+          
+          for(Expense ex : expenses){
+              table.addCell("" + ex.getDescription());
+              table.addCell("" + formatter.format(ex.getExpenseDate()));
+              table.addCell("" + ex.getValue());
+              table.addCell("" + formatter.format(ex.getCashRegister().getDateCashRegister()));
           }
           
          document.add(table);

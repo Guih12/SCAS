@@ -631,32 +631,28 @@ public class ViewEmployee extends javax.swing.JDialog {
         String phoneNumber = jNumberPhone.getText();
         String userLogin = jUserLogin.getText();
         String password = jPassword.getText();
-       
-        
-        
-         int ageConvert = Integer.parseInt(age);
-         employee.setName(name);
-         employee.setAge(ageConvert);
-         employee.setCpf(cpf);
-         employee.setAddress(address);
-         employee.setPhoneNumber(phoneNumber);
-         employee.setUserLogin(userLogin);
-         employee.setPassword(password);
-         employee.setTypeEmployee(TypeEmployee.COMUM);
-         
-        
+    
         
         if(validateDate(name, age, cpf, address, phoneNumber, userLogin, password)){
             JOptionPane.showMessageDialog(null, "Preencha os campos obrigatorios", "Alert", JOptionPane.WARNING_MESSAGE);
         }else{
             try{
+                int ageConvert = Integer.parseInt(age);
+                employee.setName(name);
+                employee.setAge(ageConvert);
+                employee.setCpf(cpf);
+                employee.setAddress(address);
+                employee.setPhoneNumber(phoneNumber);
+                employee.setUserLogin(userLogin);
+                employee.setPassword(password);
+                employee.setTypeEmployee(TypeEmployee.COMUM);
                 
               this.employeeRepository.insert(employee);
               JOptionPane.showMessageDialog(null, "Funcionario inserido com sucesso");
               this.clearInputs();
                 
             }catch(NoResultException ex){
-                 JOptionPane.showMessageDialog(null, "Erro ao cadastrar Funcionario", "Alert", JOptionPane.ERROR);
+                 JOptionPane.showMessageDialog(null, "Erro ao cadastrar Funcionario", "Alert", JOptionPane.ERROR_MESSAGE);
             }
         }
         
@@ -689,41 +685,55 @@ public class ViewEmployee extends javax.swing.JDialog {
     
     private void jHandleSearchEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHandleSearchEmployeeActionPerformed
         String name = jNameSearchEmployee.getText();
-        try{
+        
+        if(name.trim().equals("")){
+            JOptionPane.showMessageDialog(null, "Preencha os campos obrigatorios", "Alert", JOptionPane.WARNING_MESSAGE);
+        }else{
+            try{
             
-            List<Employee> employees = this.employeeRepository.searchEmployee(name);
-            for(Employee e : employees){
-                this.completeTableSearchEmployee(e);
+                List<Employee> employees = this.employeeRepository.searchEmployee(name);
+                for(Employee e : employees){
+                    this.completeTableSearchEmployee(e);
+                }
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Funcionário não encontrado", "Alert", JOptionPane.ERROR_MESSAGE);
             }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Funcionário não encontrado", "Alert", JOptionPane.ERROR_MESSAGE);
         }
+
     }//GEN-LAST:event_jHandleSearchEmployeeActionPerformed
 
     private void jHandleUpdateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHandleUpdateEmployeeActionPerformed
         String typeEmployee = jTypeEmployeeUpdate.getText();
         String cod = jCodEmployeeUpdate.getText();
         
-        Employee employeeUpdate = this.employeeRepository.getEmployeePK(Integer.parseInt(cod));
-        employeeUpdate.setTypeEmployee(this.verifyTypeEmployee(typeEmployee));
         
-        
-        try{
-            this.employeeRepository.update(employeeUpdate);
-            JOptionPane.showMessageDialog(null, "Funcionario Alterado com sucesso");
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Erro ao alterar funcionário", "Alert", JOptionPane.ERROR_MESSAGE);
+        if(typeEmployee.trim().equals("") || cod.trim().equals("")){
+             JOptionPane.showMessageDialog(null, "Preencha os campos obrigatorios", "Alert", JOptionPane.WARNING_MESSAGE);
+        }else{
+             Employee employeeUpdate = this.employeeRepository.getEmployeePK(Integer.parseInt(cod));
+             employeeUpdate.setTypeEmployee(this.verifyTypeEmployee(typeEmployee));
+               
+            try{
+                this.employeeRepository.update(employeeUpdate);
+                JOptionPane.showMessageDialog(null, "Funcionario Alterado com sucesso");
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Erro ao alterar funcionário", "Alert", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_jHandleUpdateEmployeeActionPerformed
 
     private void jHandleSearchEmployeeToRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHandleSearchEmployeeToRemoveActionPerformed
         try{
             String cod = jCodRemove.getText();
-            Employee employee = this.employeeRepository.getEmployeePK(Integer.parseInt(cod));
-             DefaultTableModel tableRemoveEmployee = (DefaultTableModel) jTableRemoveEmployee.getModel();
-            tableRemoveEmployee.addRow(new Object[] {employee.getId(), employee.getName(), employee.getAge(), 
-                employee.getCpf(), employee.getTypeEmployee(), employee.getAddress()});
             
+            if(cod.trim().equals("")){
+                JOptionPane.showMessageDialog(null, "Preencha o campo obrigatorio de busca", "Alert", JOptionPane.WARNING_MESSAGE);
+            }else{
+                Employee employee = this.employeeRepository.getEmployeePK(Integer.parseInt(cod));
+                DefaultTableModel tableRemoveEmployee = (DefaultTableModel) jTableRemoveEmployee.getModel();
+                tableRemoveEmployee.addRow(new Object[] {employee.getId(), employee.getName(), employee.getAge(), 
+                employee.getCpf(), employee.getTypeEmployee(), employee.getAddress()}); 
+            }
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Funcionário não encontrado", "Alert", JOptionPane.ERROR_MESSAGE);
         }

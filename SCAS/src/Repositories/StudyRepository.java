@@ -51,5 +51,4 @@ public class StudyRepository extends GenericRepository<Study>{
             em.close();
         }
       }
-  
  }
